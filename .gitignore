@@ -24,3 +24,6 @@ hs_err_pid*
 
 # project files
 .idea/
+
+# build artifacts
+target/
