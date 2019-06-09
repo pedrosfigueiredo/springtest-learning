@@ -1,7 +1,6 @@
-package dev.pedrofigueiredo.learning.spring.springtest;
+package dev.pedrofigueiredo.learning.spring.springtest.service;
 
 import dev.pedrofigueiredo.learning.spring.springtest.persistence.model.Game;
-import dev.pedrofigueiredo.learning.spring.springtest.persistence.model.Platform;
 import dev.pedrofigueiredo.learning.spring.springtest.persistence.repository.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,11 +16,11 @@ public class GameService {
         this.gameRepository = gameRepository;
     }
 
-    public List<Game> findByPlatform(Platform platform) {
-        return gameRepository.findAllByPlatformOrderByReleaseDateDesc(platform);
+    public Iterable<Game> findAll() {
+        return gameRepository.findAll();
     }
 
     public List<Game> findByPlatformName(String name) {
-        return gameRepository.findAllByPlatformName(name);
+        return gameRepository.findAllByPlatformNameContaining(name);
     }
 }

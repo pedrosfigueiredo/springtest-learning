@@ -12,7 +12,7 @@ public interface GameRepository extends PagingAndSortingRepository<Game, Long> {
 
     List<Game> findAllByPlatformOrderByReleaseDateDesc(Platform platform);
 
-    List<Game> findAllByPlatformName(String name);
+    List<Game> findAllByPlatformNameContaining(String name);
 
     @Query("select g from Game g where xid_developer = :developer")
     List<Game> findByDeveloper(Developer developer);
